@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'models.dart';
 
@@ -12,19 +13,39 @@ class BaseExerciseModel {
   @HiveField(3)
   String name;
   @HiveField(4)
-  String type;
+  String note;
   @HiveField(5)
-  int group;
-  @HiveField(6)
-  Parameters parameters;
+  List<String> muscleGroup;
 
   BaseExerciseModel({
-    this.id,
-    this.date,
-    this.time,
-    this.name,
-    this.type,
-    this.group,
-    this.parameters,
+    @required this.id,
+    @required this.date,
+    @required this.time,
+    @required this.name,
+    this.note,
+    this.muscleGroup,
   });
+}
+
+@HiveType(typeId: 2)
+class ExerciseModel extends BaseExerciseModel {
+  @HiveField(0)
+  Parameters parameters;
+
+  ExerciseModel({
+    @required id,
+    @required date,
+    @required time,
+    @required name,
+    note,
+    muscleGroup,
+    this.parameters,
+  }) : super(
+          id: id,
+          date: date,
+          time: time,
+          name: name,
+          note: note,
+          muscleGroup: muscleGroup,
+        );
 }

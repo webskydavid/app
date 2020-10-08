@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-@HiveType(typeId: 2)
+@HiveType(typeId: 3)
 class Parameters {
   @HiveField(0)
   String bodyParts;
@@ -23,7 +24,7 @@ class Parameters {
 
   Parameters({
     this.bodyParts,
-    this.actionType,
+    @required this.actionType,
     this.weight,
     this.reps,
     this.time,
