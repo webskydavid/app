@@ -8,13 +8,12 @@ class LocalDataService {
     exerciseBox = await Hive.openBox<List<ExerciseModel>>('20201010');
   }
 
-  void getExercisesBy(String day) {
-    
-  }
+  void getExercisesBy(String day) {}
 
   void add(ExerciseModel exercise) {
-    List<ExerciseModel> list = exerciseBox.get(key)
+    List<ExerciseModel> list = exerciseBox.get('j');
     exerciseBox.put('key', [exercise]);
   }
+
   void removeExercise() {}
 }
