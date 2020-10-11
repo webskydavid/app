@@ -1,6 +1,7 @@
 # APP
 
 Some text about app...
+<img src="./mocks/SplashScreen.png" width="180"/><img src="./mocks/Create exercise.png" width="180"/><img src="./mocks/RoutineScreen.png" width="180"/>
 
 #### Exercise box
 
