@@ -1,19 +1,24 @@
 import 'package:app/models/models.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 
-class LocalDataService {
-  Box<List<ExerciseModel>> exerciseBox;
+class ExerciseListService {
+  bool exerciseExists = false;
+  List<ExerciseModel> list = [];
+  final String currentDate = DateFormat('yyyyMMdd').format(DateTime.now());
 
-  Future<void> init() async {
-    exerciseBox = await Hive.openBox<List<ExerciseModel>>('20201010');
+  ExerciseListService() {
+    print('ExerciseListService()');
+    checkIfExerciseExists();
   }
 
-  void getExercisesBy(String day) {}
-
-  void add(ExerciseModel exercise) {
-    List<ExerciseModel> list = exerciseBox.get('j');
-    exerciseBox.put('key', [exercise]);
+  Future<void> getExercisesBy(String date) async {
+    print('getExercisesBy()');
+    list = [ExerciseModel(id: '1', date: '1', time: '1', name: '1')];
   }
 
-  void removeExercise() {}
+  void checkIfExerciseExists() async {
+    print('checkIfBoxExists()');
+    exerciseExists = await Hive.boxExists(currentDate);
+  }
 }
