@@ -28,6 +28,7 @@ class ExerciseListScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text('Welcome to APP'),
+                        Text('You have no exercises today'),
                         Text('Which action do you want to do?'),
                         RaisedButton(
                           onPressed: () {},

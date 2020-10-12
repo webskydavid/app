@@ -43,13 +43,14 @@ void main() {
       'should show welcome message and two buttons when no data was found in the local storage',
       (WidgetTester tester) async {
         await tester.pumpWidget(exerciseListScreen);
+        ExerciseListService service =
+            IN.get<ExerciseListService>() as MockExerciseListService;
+
         expect(find.byType(Scaffold), findsOneWidget);
 
-        expect(
-          (IN.get<ExerciseListService>() as MockExerciseListService)
-              .exerciseExists,
-          false,
-        );
+        expect(service.exerciseExists, false);
+        await tester.pump();
+
         expect(find.text('Welcome to APP'), findsOneWidget);
         expect(find.text('You have no exercises today'), findsOneWidget);
         expect(find.text('Which action do you want to do?'), findsOneWidget);
@@ -65,24 +66,17 @@ void main() {
         'should show list of exercises when data was found for the currnet day "2020-01-01"',
         (WidgetTester tester) async {
           await tester.pumpWidget(exerciseListScreen);
-          expect(find.byType(Scaffold), findsOneWidget);
+          ExerciseListService service =
+              IN.get<ExerciseListService>() as MockExerciseListService;
 
-          expect(
-            (IN.get<ExerciseListService>() as MockExerciseListService)
-                .exerciseExists,
-            false,
-          );
-          (IN.get<ExerciseListService>() as MockExerciseListService)
-              .exerciseExists = true;
+          expect(find.byType(Scaffold), findsOneWidget);
+          expect(service.exerciseExists, false);
+
+          service.exerciseExists = true;
+          service.list = mockDataExerciseList;
           await tester.pump();
 
-          expect(
-            (IN.get<ExerciseListService>() as MockExerciseListService)
-                .list
-                .length,
-            4,
-          );
-
+          expect(service.list.length, 4);
           expect(find.text('Item'), findsNWidgets(4));
         },
       );
