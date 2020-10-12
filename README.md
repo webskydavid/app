@@ -1,7 +1,13 @@
 # APP
 
 Some text about app...
-<img src="./mocks/SplashScreen.png" width="180"/><img src="./mocks/Create exercise.png" width="180"/><img src="./mocks/RoutineScreen.png" width="180"/>
+
+<img src="./mocks/SplashScreen.png" width="200"/>
+<img src="./mocks/Create exercise.png" width="200"/>
+<img src="./mocks/RoutineScreen.png" width="200"/><br/>
+<img src="./mocks/CreateExercise-select_muscle_group.png" width="200"/>
+<img src="./mocks/RoutineScreen-started-exercise_paused.png" width="200"/>
+<img src="./mocks/RoutineScreen-started.png" width="200"/>
 
 #### Exercise box
 
